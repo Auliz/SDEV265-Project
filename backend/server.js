@@ -2,13 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const Router = require('./routes');
 // Model Imports
-const Course = require('./models/course');
+// const Sale = require('./models/sales');
 
 const port = 3000;
 const uri =
-	'mongodb+srv://admin-sdev255:admin-password@sdev255-fp-db.9zv6wry.mongodb.net/faux-school?retryWrites=true&w=majority';
+	'mongodb+srv://admin-265:265joecalebjoe@sdev265.kywd08q.mongodb.net/sample_supplies?retryWrites=true&w=majority';
 
 const app = express();
 
@@ -31,67 +31,17 @@ try {
 	console.log('could not connect');
 }
 
-// routes
+// app.get('/sales', async (request, response) => {
+//   try {
+//     const sales = await Sale.find({});
+//     console.log('Sales:', sales);
+//     response.send(sales);
+//   } catch (error) {
+//     console.error(error);
+//     response.status(500).send(error);
+//   }
+// });
 
-// Get all Courses
-app.get('/api/courses', (req, res) => {
-	Course.find()
-		.then((result) => {
-			res.send(result);
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-});
+app.use(Router)
 
-// Get a single Course
-app.post('/api/course', (req, res) => {
-	console.log('req.body ' + req.body.data);
-	console.log('courseName ' + req.body.courseName);
-	Course.findById(req.body.courseID)
-		.then((result) => {
-			res.send(result);
-		})
-		.catch((err) => {
-			console.log(err);
-		});
-});
-
-// Edit Course in DB
-
-app.patch('/api/course/edit', (req, res) => {
-	Course.findById(req.body.courseID)
-		.then((resp) => {
-			resp.name = req.body.courseName
-			resp.title = req.body.courseTitle
-			resp.save()
-		})
-})
-
-
-
-// Add Course to DB
-app.post('/api/course/add', function (req, res, next) {
-	 course = new Course({
-		name: req.body.name,
-		title: req.body.title,
-	});
-  console.log(course);
-	course.save(function (err, course) {
-		if (err) {
-			return next(err);
-		}
-		res.status(201).json(course);
-	});
-});
-
-// Deletes Course from DB
-
-app.post('/api/course/delete', function (req, res) {
-	Course.findByIdAndDelete(req.body.courseID, function (err) {
-		if (err) console.log(err);
-		console.log('Successful deletion');
-	});
-});
-
-app.listen(port, () => console.log('app running'));
+app.listen(port, () => console.log('server running at port ' + port));

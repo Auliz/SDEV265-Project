@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark pe-3">
     <!-- <a class="navbar-brand ps-5" href="/">Faux School</a> -->
-    <router-link class="navbar-brand ps-5" to="/">Faux School</router-link>
+    <router-link class="navbar-brand ps-5" to="/">Faux Sales LLC</router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,11 +14,11 @@
           </li>
           <li class="nav-item">
             <!-- <a href="/courses" class="nav-link">Courses</a> -->
-            <router-link class="nav-link" to="/courses">Courses</router-link>
+            <router-link class="nav-link" to="/courses">Sales</router-link>
           </li>
           <li class="nav-item">
             <!-- <a href="/courses/add" class="nav-link">Add Course</a> -->
-            <router-link class="nav-link" to="/courses/add">Add Course</router-link>
+            <router-link class="nav-link" to="/courses/add">Add Sale</router-link>
           </li>
           <li class="nav-item">
             <!-- <a href="/viewcourse" class="nav-link">View Course</a> -->
