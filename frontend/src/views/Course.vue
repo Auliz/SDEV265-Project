@@ -5,11 +5,6 @@
 			<table class="table">
 				<thead class="table-dark">
 					<tr>
-						<!-- <th scope="col">Sale Date</th>
-						<th scope="col">Location</th>
-						<th scope="col">Purchase Method</th>
-						<th scope="col">Coupon Used?</th>
-						<th scope="col"></th> -->
 						<th>Sale #</th>
 						<th>Date</th>
 						<th>Items</th>
@@ -52,11 +47,11 @@
 						<td>{{ sale.storeLocation }}</td>
 						<td>{{ sale.purchaseMethod }}</td>
 						<td>{{ formatCouponUsed(sale.couponUsed) }}</td> -->
-						<!-- <td>
+						<td>
 							<button class="mx-2 btn btn-primary" @click="viewSale(sale.name)">View</button>
 							<button class="mx-2 btn btn-secondary" @click="editSale(course._id)">Edit</button>
 							<button class="mx-2 btn btn-danger" @click="deleteSale(course._id, i)">Delete</button>
-						</td> -->
+						</td>
 					</tr>
 					<!-- <tr>
 						<td colspan="3"><router-link class="btn btn-primary" to="/courses/add">Add Course</router-link></td>

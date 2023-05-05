@@ -39,28 +39,28 @@ app.post('/api/sale', (req, res) => {
 // 		})
 // })
 
-// // Add Course to DB
-// app.post('/api/course/add', function (req, res, next) {
-// 	 course = new Course({
-// 		name: req.body.name,
-// 		title: req.body.title,
-// 	});
-//   console.log(course);
-// 	course.save(function (err, course) {
-// 		if (err) {
-// 			return next(err);
-// 		}
-// 		res.status(201).json(course);
-// 	});
-// });
+// Add Course to DB
+app.post('/api/course/add', function (req, res, next) {
+	 course = new Course({
+		name: req.body.name,
+		title: req.body.title,
+	});
+  console.log(course);
+	course.save(function (err, course) {
+		if (err) {
+			return next(err);
+		}
+		res.status(201).json(course);
+	});
+});
 
-// // Deletes Course from DB
+// Deletes Course from DB
 
-// app.post('/api/course/delete', function (req, res) {
-// 	Course.findByIdAndDelete(req.body.courseID, function (err) {
-// 		if (err) console.log(err);
-// 		console.log('Successful deletion');
-// 	});
-// });
+app.post('/api/course/delete', function (req, res) {
+	Course.findByIdAndDelete(req.body.courseID, function (err) {
+		if (err) console.log(err);
+		console.log('Successful deletion');
+	});
+});
 
 module.exports = app;

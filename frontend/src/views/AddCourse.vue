@@ -1,6 +1,6 @@
 <template>
 	<div class="pt-5">
-		<div class="h1 text-center">Add Course</div>
+		<div class="h1 text-center">Restock</div>
 		<div class="pt-2" style="margin-left: auto; margin-right: auto; width:60%">
 			<form>
 				<div class="form-group">
