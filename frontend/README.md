@@ -5,20 +5,15 @@
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Running the code
+
 ```
+First, ensure you are in the right directory.
+cd .\frontend
+Then you can run:
 npm run serve
+
+You should see confirmation everything is running in the terminal.
+Navigate to the localhost link that is displayed in the terminal using a web browser.
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
