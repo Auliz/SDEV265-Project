@@ -27,8 +27,8 @@
 						<td>
 							<ul class="no-bullets">
 								<li v-for="(item, index) in sale.items" :key="index">
-									{{ item.name }} - {{ item.quantity }} -
-									{{ '$' + item.price.$numberDecimal }}
+									{{ item.itemName }} - {{ item.quantity }} -
+									{{ '$' + item.price }}
 								</li>
 							</ul>
 						</td>
@@ -48,9 +48,9 @@
 						<td>{{ sale.purchaseMethod }}</td>
 						<td>{{ formatCouponUsed(sale.couponUsed) }}</td> -->
 						<td>
-							<button class="mx-2 btn btn-primary" @click="viewSale(sale.name)">View</button>
-							<button class="mx-2 btn btn-secondary" @click="editSale(course._id)">Edit</button>
-							<button class="mx-2 btn btn-danger" @click="deleteSale(course._id, i)">Delete</button>
+							<button class="mx-2 btn btn-primary" @click="viewSale(sale._id)">View</button>
+							<button class="mx-2 btn btn-secondary" @click="editSale(sale._id)">Edit</button>
+							<button class="mx-2 btn btn-danger" @click="deleteSale(sale._id, i)">Delete</button>
 						</td>
 					</tr>
 					<!-- <tr>
@@ -83,25 +83,25 @@ export default {
 			console.log(id);
 			if (
 				confirm(
-					'Do you really want to delete ' +
-						this.courses[i].name +
+					'Do you really want to delete sale # ' +
+						(i + 1) +
 						"? You won't be able to undo this operation. Press OK to confirm deletion."
 				)
 			) {
-				axios.post('http://localhost:3000/api/course/delete', {
-					courseID: id,
+				axios.post('http://localhost:3000/api/sale/delete', {
+					saleID: id,
 				});
-				this.courses.splice(i, 1); // this replaces window.location.reload();
+				this.sales.splice(i, 1);
 			}
 		},
 
-		viewSale(courseName) {
-			let coursePath = `/course/${courseName}`;
-			this.$router.push({ path: coursePath });
+		viewSale(saleID) {
+			let salePath = `/sale/${saleID}`;
+			this.$router.push({ path: salePath });
 		},
 
 		editSale(id) {
-			this.$router.push({ name: 'edit-course', params: { courseID: id } });
+			this.$router.push({ name: 'edit-sale', params: { saleID: id } });
 		},
 	},
 	computed: {

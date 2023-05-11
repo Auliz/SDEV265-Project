@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/Home.vue';
-import Courses from '../views/Course.vue';
-import AddCourse from '../views/AddCourse.vue';
-import ViewCourse from '../views/ViewCourse.vue';
-import EditCourse from '../views/EditCourse.vue';
+import Sales from '../views/Sale.vue';
+import AddSale from '../views/AddSale.vue';
+import ViewSale from '../views/ViewSale.vue';
+import EditSale from '../views/EditSale.vue';
+import Restock from '../views/Restock.vue';
 import NotFound from '../views/404.vue';
 
 const routes = [
@@ -13,26 +14,31 @@ const routes = [
 		component: HomePage,
 	},
 	{
-		path: '/courses',
-		name: 'courses',
-		component: Courses,
+		path: '/sales',
+		name: 'sales',
+		component: Sales,
 	},
 	{
-		path: '/courses/add',
-		name: 'add-course',
-		component: AddCourse,
+		path: '/sales/add',
+		name: 'add-sale',
+		component: AddSale,
 	},
 	{
-		path: '/course/:name',
-		name: 'view-course',
-		component: ViewCourse,
+		path: '/sale/:saleID',
+		name: 'view-sale',
+		component: ViewSale,
 		props: true,
 	},
 	{
-		// path: '/edit-course/:courseID/:courseName',
-		path: '/course/:courseID/edit',
-		name: 'edit-course',
-		component: EditCourse,
+		path: '/sale/:saleID/edit',
+		name: 'edit-sale',
+		component: EditSale,
+		props: true,
+	},
+	{
+		path: '/restock',
+		name: 'restock',
+		component: Restock,
 		props: true,
 	},
 	{

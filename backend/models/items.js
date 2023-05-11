@@ -1,9 +1,18 @@
+const { Double, Int32 } = require('mongodb');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
-  saleDate: {
-    type: Date,
+  itemName: {
+    type: String,
+    required: true
+  },
+  quantity: {
+    type: Number,
+    required: true
+  },
+  price: {
+    type: Number,
     required: true
   },
 });

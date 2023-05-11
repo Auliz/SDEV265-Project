@@ -31,17 +31,6 @@ try {
 	console.log('could not connect');
 }
 
-// app.get('/sales', async (request, response) => {
-//   try {
-//     const sales = await Sale.find({});
-//     console.log('Sales:', sales);
-//     response.send(sales);
-//   } catch (error) {
-//     console.error(error);
-//     response.status(500).send(error);
-//   }
-// });
-
 app.use(Router)
 
 app.listen(port, () => console.log('server running at port ' + port));

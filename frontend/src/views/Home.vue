@@ -6,7 +6,7 @@
       <hr class="my-4">
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod illum ab placeat eum, rerum expedita impedit voluptates quaerat, voluptate culpa, excepturi perspiciatis quia numquam repellendus dolorum deserunt eaque eligendi. Deleniti!</p>
       <p class="lead">
-        <router-link class="btn btn-primary btn-lg text-light" to="/courses">Sales</router-link>
+        <router-link class="btn btn-primary btn-lg text-light" to="/sales">Sales</router-link>
       </p>
     </div>
   </div>
