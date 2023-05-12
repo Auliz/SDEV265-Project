@@ -47,7 +47,7 @@
 						<input
 							type="number"
 							class="form-control"
-							v-model="editedItem.quantity"
+							v-model="newQuantity"
 							id="quantity"
 						/>
 					</div>
@@ -61,22 +61,13 @@
 							id="price"
 						/>
 					</div>
-					<div class="form-group">
-						<label for="id">ID:</label>
-						<input
-							type="string"
-							step="0.01"
-							class="form-control"
-							v-model="editedItem._id"
-							id="id"
-						/>
-					</div>
+
 					<button
 						type="submit"
 						class="btn btn-primary"
 						@click.prevent="updateItem"
 					>
-						Save Changes
+						Confirm Restock Order
 					</button>
 					<button type="button" class="btn btn-secondary" @click="cancelEdit">
 						Cancel
@@ -91,22 +82,22 @@
 import axios from 'axios';
 
 export default {
-  data() {
-    return {
-      items: [],
-      newItemName: '',
-      newQuantity: 0,
-      newPrice: 0,
-      showEditForm: false,
-      editedIndex: -1,
-      editedItem: {},
-    };
-  },
-  async created() {
+	data() {
+		return {
+			items: [],
+			newItemName: '',
+			newQuantity: 0,
+			newPrice: 0,
+			showEditForm: false,
+			editedIndex: -1,
+			editedItem: {},
+		};
+	},
+	async created() {
 		this.items = (await axios.get('http://localhost:3000/api/inventory')).data;
 	},
-  methods: {
-    editItem(item) {
+	methods: {
+		editItem(item) {
 			this.showEditForm = true;
 			this.editedItem = { ...item };
 			this.editedIndex = this.items.indexOf(item);
@@ -119,23 +110,21 @@ export default {
 		updateItem() {
 			this.items.splice(this.editedIndex, 1, { ...this.editedItem });
 			this.showEditForm = false;
-      this.postItem()
+			this.postItem();
 			this.editedItem = { itemName: '', quantity: 0, price: 0 };
 			this.editedIndex = -1;
-
 		},
-    async postItem() {
+		async postItem() {
 			await axios.patch('http://localhost:3000/api/inventory/edit', {
 				itemID: this.editedItem._id,
 				itemName: this.editedItem.itemName,
-				quantity: this.editedItem.quantity,
+				quantity: this.editedItem.quantity + this.newQuantity,
 				price: this.editedItem.price,
 			});
 		},
-  }
+	},
 };
 </script>
-
 
 <style scoped>
 ul.no-bullets {

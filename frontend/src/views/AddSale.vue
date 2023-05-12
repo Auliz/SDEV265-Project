@@ -113,7 +113,8 @@
 					<label class="form-check-label" :for="'item' + i">{{
 						item.itemName
 					}}</label>
-					<span class="price-span">{{ '$ ' + item.price }}</span>
+					<span class="price-span">{{ 'Price: $ ' + item.price }}</span>
+					<span class="price-span">{{ 'In Stock: ' + item.quantity }}</span>
 					<input
 						type="number"
 						class="form-control"
@@ -218,6 +219,7 @@ export default {
 
 		async postSale() {
 			let selectedItemsList = [];
+      let itemCount = [];
 
 			for (let i = 0; i < this.selectedItems.length; i++) {
 				let selectedItem = this.selectedItems[i];
@@ -225,13 +227,22 @@ export default {
 					(item) => item.itemName === selectedItem.itemName
 				);
 				let itemPrice = this.items[itemIndex].price;
+        let itemID = this.items[itemIndex]._id
+        let originalQuantity = this.items[itemIndex].quantity;
 				selectedItemsList.push({
 					itemName: selectedItem.itemName,
 					quantity: this.selectedItemsQuantity[selectedItem.itemName],
 					price: itemPrice,
 				});
+        itemCount.push({
+          itemID: itemID,
+          newQuantity: this.selectedItemsQuantity[selectedItem.itemName],
+          itemName: selectedItem.itemName,
+          price: itemPrice,
+          originalQuantity: originalQuantity
+        })
 			}
-      console.log(selectedItemsList);
+      this.decrementItem(itemCount)
 			await axios.post('http://localhost:3000/api/sale/add', {
 				saleDate: this.newSaleDate,
 				storeLocation: this.newSaleLocation,
@@ -241,6 +252,20 @@ export default {
         customer: this.newCustomer,
 			});
 		},
+
+    async decrementItem(itemsList) {
+      console.log(itemsList)
+      for (let i = 0; i < itemsList.length; i++) {
+        let item = itemsList[i]
+        console.log(item)
+        await axios.patch('http://localhost:3000/api/inventory/edit', {
+          itemID: item.itemID,
+          itemName: item.itemName,
+          quantity: (item.originalQuantity - item.newQuantity),
+          price: item.price,
+        });
+      }
+    },
 	},
 };
 </script>

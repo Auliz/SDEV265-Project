@@ -32,12 +32,10 @@ app.patch('/api/inventory/edit', (req, res) => {
 });
 
 // SALES BELOW
-
-// Get 177 Sales -- currently 177 due to .limit(177) There are like 5000 total.
+// Get all sales from DB
 app.get('/api/sales', async (req, res) => {
 	try {
-		const sales = await Sale.find({}).limit(2);
-		// console.log('Sales:', sales);
+		const sales = await Sale.find({});
 		res.setHeader('Content-Type', 'application/json');
 		res.json(sales);
 	} catch (error) {
@@ -82,7 +80,6 @@ app.post('/api/sale/add', function (req, res, next) {
 		couponUsed: req.body.couponUsed,
 		purchaseMethod: req.body.purchaseMethod,
 	});
-	console.log(sale);
 	sale.save(function (err, sale) {
 		if (err) {
 			return next(err);
@@ -93,10 +90,8 @@ app.post('/api/sale/add', function (req, res, next) {
 
 // Deletes Sale from DB
 app.post('/api/sale/delete', function (req, res) {
-  console.log('Hit delete')
 	Sale.findByIdAndDelete(req.body.saleID, function (err) {
 		if (err) console.log(err);
-		console.log('Successful deletion');
 	});
 });
 
