@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "645c7f02f174ef8c883f23e3"
+  },
+  "saleDate": {
+    "$date": {
+      "$numberLong": "1683676800000"
+    }
+  },
+  "items": [
+    {
+      "itemName": "Pens",
+      "quantity": 1,
+      "price": 2.5
+    },
+    {
+      "itemName": "Paper",
+      "quantity": 2,
+      "price": 7.5
+    },
+    {
+      "itemName": "Printer Paper",
+      "quantity": 3,
+      "price": 6.5
+    },
+    {
+      "itemName": "Notepad",
+      "quantity": 4,
+      "price": 1.5
+    },
+    {
+      "itemName": "Backpack",
+      "quantity": 5,
+      "price": 15.5
+    },
+    {
+      "itemName": "Envelopes",
+      "quantity": 6,
+      "price": 0.99
+    },
+    {
+      "itemName": "Binder",
+      "quantity": 7,
+      "price": 5.25
+    },
+    {
+      "itemName": "Laptop",
+      "quantity": 8,
+      "price": 439.99
+    }
+  ],
+  "storeLocation": "Saint John",
+  "customer": {
+    "gender": "M",
+    "age": "26",
+    "email": "joseph.auz77@gmail.com",
+    "satisfaction": "5"
+  },
+  "couponUsed": true,
+  "purchaseMethod": "Phone",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e6bc5a0aebad56eba50b5"
+  },
+  "saleDate": {
+    "$date": {
+      "$numberLong": "1427086800000"
+    }
+  },
+  "items": [
+    {
+      "itemName": "Binder",
+      "quantity": 2,
+      "price": 5.25
+    },
+    {
+      "itemName": "Backpack",
+      "quantity": 3,
+      "price": 15.5
+    }
+  ],
+  "storeLocation": "La Grange",
+  "customer": {
+    "gender": "F",
+    "age": "26",
+    "email": "lindsey@gmail.com",
+    "satisfaction": "4"
+  },
+  "couponUsed": true,
+  "purchaseMethod": "Online",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e6d5da0aebad56eba50cb"
+  },
+  "saleDate": {
+    "$date": {
+      "$numberLong": "1683676800000"
+    }
+  },
+  "items": [
+    {
+      "itemName": "Paper",
+      "quantity": 3,
+      "price": 7.5
+    }
+  ],
+  "storeLocation": "Fort Lauderdale",
+  "customer": {
+    "gender": "M",
+    "age": "18",
+    "email": "test@gmail.com",
+    "satisfaction": "3"
+  },
+  "couponUsed": false,
+  "purchaseMethod": "In Store",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e6fe07b88af67febb935d"
+  },
+  "saleDate": {
+    "$date": {
+      "$numberLong": "1683676800000"
+    }
+  },
+  "items": [
+    {
+      "itemName": "Paper",
+      "quantity": 10,
+      "price": 7.5
+    }
+  ],
+  "storeLocation": "Rome",
+  "customer": {
+    "gender": "F",
+    "age": "26",
+    "email": "patchitem@test.gmail.com",
+    "satisfaction": "4"
+  },
+  "couponUsed": false,
+  "purchaseMethod": "In Store",
+  "__v": 0
+}]

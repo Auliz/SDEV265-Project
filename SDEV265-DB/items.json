@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "645560e7f7e4d77f1b2a5fa4"
+  },
+  "itemName": "Pens",
+  "quantity": 550,
+  "price": 2.5
+},{
+  "_id": {
+    "$oid": "64556165f7e4d77f1b2a5fa5"
+  },
+  "itemName": "Paper",
+  "quantity": 500,
+  "price": 7.5
+},{
+  "_id": {
+    "$oid": "64558d079def4e8119f54e97"
+  },
+  "itemName": "Printer Paper",
+  "quantity": 250,
+  "price": 6.5
+},{
+  "_id": {
+    "$oid": "64558d2a9def4e8119f54e98"
+  },
+  "itemName": "Notepad",
+  "quantity": 790,
+  "price": 1.5
+},{
+  "_id": {
+    "$oid": "64558d489def4e8119f54e99"
+  },
+  "itemName": "Backpack",
+  "quantity": 450,
+  "price": 15.5
+},{
+  "_id": {
+    "$oid": "64558d679def4e8119f54e9a"
+  },
+  "itemName": "Envelopes",
+  "quantity": 1000,
+  "price": 0.99
+},{
+  "_id": {
+    "$oid": "64558d839def4e8119f54e9b"
+  },
+  "itemName": "Binder",
+  "quantity": 330,
+  "price": 5.25
+},{
+  "_id": {
+    "$oid": "64558d979def4e8119f54e9c"
+  },
+  "itemName": "Laptop",
+  "quantity": 60,
+  "price": 439.99
+}]
